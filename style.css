@@ -1,0 +1,61 @@
+/* Phaselight-site: systeemlettertype, licht en donker, geen externe bronnen. */
+:root {
+  color-scheme: light dark;
+  --bg: #ffffff;
+  --fg: #1c1b19;
+  --muted: #5e5b55;
+  --line: #0000001a;
+  --link: #1c1b19;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --fg: #f3f1ec;
+    --muted: #a39f96;
+    --line: #ffffff26;
+    --link: #f3f1ec;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0 auto;
+  max-width: 42rem;
+  padding: 0 1.25rem 2rem;
+  background: var(--bg);
+  color: var(--fg);
+  font: 1.0625rem/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+}
+a { color: var(--link); text-underline-offset: 0.15em; }
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+header .name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.logo { display: none; flex: none; }
+header .lang { font-size: 0.9375rem; }
+h1 { font-size: 2rem; line-height: 1.2; margin: 2rem 0 1rem; }
+h2 { font-size: 1.25rem; line-height: 1.3; margin: 2rem 0 0.5rem; }
+.lead { font-size: 1.1875rem; color: var(--muted); }
+.links { padding-left: 1.25rem; }
+.meta { color: var(--muted); font-size: 0.9375rem; margin-top: 2rem; }
+li + li { margin-top: 0.25rem; }
+footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9375rem;
+}
+.skip { position: absolute; left: -999px; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--bg); padding: 0.5rem; }

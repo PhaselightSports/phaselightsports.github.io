@@ -1,39 +1,45 @@
-/* Phaselight-site: systeemlettertype, licht en donker, geen externe bronnen. */
+/* Phaselight-site: tokens uit het Phaselight Design System (palet 2, zoals de app), systeemletters, licht en donker.
+   Geen scripts, geen cookies, geen externe bronnen. Links in inkt, onderstreept; merkgroen nooit als tekst. */
 :root {
   color-scheme: light dark;
-  --bg: #ffffff;
-  --fg: #1c1b19;
-  --muted: #5e5b55;
-  --line: #0000001a;
-  --link: #1c1b19;
+  --surface-0: #f5f4f0;
+  --surface-1: #ffffff;
+  --ink: #1c1b19;
+  --ink-secondary: #5e5b55;
+  --hairline: #0000001a;
+  --border-control: #00000024;
+  --shadow-card: 0 1px 3px #00000014;
 }
 @media (prefers-color-scheme: dark) {
   :root {
-    --bg: #000000;
-    --fg: #f3f1ec;
-    --muted: #a39f96;
-    --line: #ffffff26;
-    --link: #f3f1ec;
+    --surface-0: #0e0e0d;
+    --surface-1: #1c1b19;
+    --ink: #f3f1ec;
+    --ink-secondary: #a39f96;
+    --hairline: #ffffff1a;
+    --border-control: #ffffff29;
+    --shadow-card: none;
   }
 }
 * { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; }
 body {
   margin: 0 auto;
-  max-width: 42rem;
+  max-width: calc(640px + 2.5rem);
   padding: 0 1.25rem 2rem;
-  background: var(--bg);
-  color: var(--fg);
-  font: 1.0625rem/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  background: var(--surface-0);
+  color: var(--ink);
+  font: 1.0625rem/1.55 -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
 }
-a { color: var(--link); text-underline-offset: 0.15em; }
+a { color: var(--ink); text-decoration: underline; text-underline-offset: 0.15em; }
+h1, h2, header .name { font-family: ui-rounded, -apple-system, BlinkMacSystemFont, system-ui, sans-serif; }
 header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
   padding: 1.25rem 0;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid var(--hairline);
 }
 header .name {
   display: inline-flex;
@@ -42,20 +48,59 @@ header .name {
   font-weight: 700;
   text-decoration: none;
 }
-.logo { display: none; flex: none; }
+.logo { flex: none; }
 header .lang { font-size: 0.9375rem; }
 h1 { font-size: 2rem; line-height: 1.2; margin: 2rem 0 1rem; }
 h2 { font-size: 1.25rem; line-height: 1.3; margin: 2rem 0 0.5rem; }
-.lead { font-size: 1.1875rem; color: var(--muted); }
-.links { padding-left: 1.25rem; }
-.meta { color: var(--muted); font-size: 0.9375rem; margin-top: 2rem; }
-li + li { margin-top: 0.25rem; }
-footer {
-  margin-top: 3rem;
+.hero { display: flex; align-items: center; gap: 1rem; margin: 2rem 0 0.75rem; }
+.hero h1 { margin: 0; }
+.app-icon { flex: none; width: 72px; height: 72px; border-radius: 16px; }
+.app-icon.placeholder {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px dashed var(--ink-secondary);
+  color: var(--ink-secondary);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  text-align: center;
+}
+.lead { font-size: 1.1875rem; color: var(--ink-secondary); margin: 0 0 1.25rem; }
+.card, .rows {
+  background: var(--surface-1);
+  border: 1px solid var(--hairline);
+  border-radius: 22px;
+  box-shadow: var(--shadow-card);
+}
+.card { padding: 0.25rem 1.25rem 1.25rem; margin-top: 1.5rem; }
+.card h1 { margin-top: 1.25rem; }
+.rows { list-style: none; margin: 0; padding: 0; overflow: hidden; }
+.rows li + li { border-top: 1px solid var(--hairline); }
+.rows a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 3.25rem;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+}
+.rows a:hover, .rows a:focus-visible { text-decoration: underline; }
+.chev { color: var(--ink-secondary); }
+.meta {
+  color: var(--ink-secondary);
+  font-size: 0.9375rem;
+  margin: 1.5rem 0 0;
   padding-top: 1rem;
-  border-top: 1px solid var(--line);
-  color: var(--muted);
+  border-top: 1px solid var(--hairline);
+}
+li + li { margin-top: 0.25rem; }
+.rows li + li { margin-top: 0; }
+footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--hairline);
+  color: var(--ink-secondary);
   font-size: 0.9375rem;
 }
 .skip { position: absolute; left: -999px; }
-.skip:focus { left: 1rem; top: 1rem; background: var(--bg); padding: 0.5rem; }
+.skip:focus { left: 1rem; top: 1rem; background: var(--surface-0); padding: 0.5rem; }

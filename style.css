@@ -55,16 +55,6 @@ h2 { font-size: 1.25rem; line-height: 1.3; margin: 2rem 0 0.5rem; }
 .hero { display: flex; align-items: center; gap: 1rem; margin: 2rem 0 0.75rem; }
 .hero h1 { margin: 0; }
 .app-icon { flex: none; width: 72px; height: 72px; border-radius: 16px; }
-.app-icon.placeholder {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px dashed var(--ink-secondary);
-  color: var(--ink-secondary);
-  font-size: 0.75rem;
-  line-height: 1.2;
-  text-align: center;
-}
 .lead { font-size: 1.1875rem; color: var(--ink-secondary); margin: 0 0 1.25rem; }
 .card, .rows {
   background: var(--surface-1);
